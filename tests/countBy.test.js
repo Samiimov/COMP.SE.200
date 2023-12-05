@@ -33,18 +33,20 @@ describe('countBy function', () => {
     test('can count the number of instances of a specific value', () => {
         const users = 
         [
-          { 'user': 'barney', 'active': true },
-          { 'user': 'betty', 'active': true },
-          { 'user': 'fred', 'active': false }
+            { 'user': 'barney', 'active': true },
+            { 'user': 'betty', 'active': true },
+            { 'user': 'fred', 'active': false }
         ]
         expect(countBy(users, value => value.active)).toEqual({ 'true': 2, 'false': 1 });
     });
 
     test('handles nested objects', () => {
-        const collection = {'banana': { 'tags': ['fruit', 'food'] },
-                            'apple': { 'tags': ['fruit', 'food', 'seasonal'] },
-                            'chicken': { 'tags': ['food', 'meat'] }
-                            }; 
+        const collection = 
+        {
+            'banana': { 'tags': ['fruit', 'food'] },
+            'apple': { 'tags': ['fruit', 'food', 'seasonal'] },
+            'chicken': { 'tags': ['food', 'meat'] }
+        }; 
         expect(countBy(collection, value => value.tags.includes('fruit'))).toEqual({ 'true': 2, 'false': 1 });
     });
 
@@ -57,4 +59,5 @@ describe('countBy function', () => {
         ]
         expect(countBy(collection, value => value.producer)).toEqual({ 'true': 1, 'false': 1, 'undefined': 1 });
     });
+
 });
