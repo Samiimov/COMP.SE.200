@@ -1,8 +1,7 @@
 // NOTE: the first instance counted by countBy initializes the value to 0, so the count will always be 1 less than the actual count
 
-
-import test from 'node:test';
 import countBy from '../src/countBy.js';
+
 
 describe('countBy function', () => {
 
