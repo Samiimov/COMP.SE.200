@@ -1,7 +1,5 @@
 import capitalize from '../src/capitalize.js';
 
-import capitalize from './capitalize';
-
 describe('capitalize function', () => {
   test('capitalizes regular strings', () => {
     expect(capitalize('hello')).toBe('Hello');
