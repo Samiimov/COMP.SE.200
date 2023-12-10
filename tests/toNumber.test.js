@@ -13,6 +13,7 @@ describe('toNumber', () => {
         expect(toNumber('3.2')).toBe(3.2);
         expect(toNumber('-123.45')).toBe(-123.45);
         expect(toNumber('0')).toBe(0);
+        expect(toNumber('123')).toBe(123);
     });
 
     test('should convert a boolean to a number', () => {
@@ -57,5 +58,15 @@ describe('toNumber', () => {
     test('should return NaN for objects', () => {
         expect(toNumber({name: 'banana'})).toBe(NaN);
         expect(toNumber([1, 2, 3])).toBe(NaN);
+    });
+
+    test('should handle objects with and without a valueOf method', () => {
+        expect(toNumber({valueOf: () => 3.2})).toBe(3.2);
+        expect(toNumber({valueOf: () => 0})).toBe(0);
+        expect(toNumber({})).toBe(NaN);
+
+        const obj = {someProperty: 'someValue'};
+        obj.valueOf = 'Not a function';
+        expect(toNumber(obj)).toBe(NaN);
     });
 });
