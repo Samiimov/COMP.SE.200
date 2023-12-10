@@ -58,4 +58,10 @@ describe('filter', () => {
         const result = filter(array, predicate);
         expect(array).toEqual([1, 2, 3, 4, 5]);
     });
+
+    test('should handle arrays with null length', () => {
+        const array = [];
+        array.length = null;
+        expect(filter(array, () => true)).toEqual([]);
+    });
 });

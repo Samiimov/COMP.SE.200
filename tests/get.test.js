@@ -23,7 +23,7 @@ describe('get', () => {
         expect(get(object, ['x', 'y', 'z'])).toBeUndefined();
     });
 
-    test('should return the value at the specified path when path contains special characters', () => {
+    test('should return the value at the specified path when object contains special characters corresponding to the path', () => {
         const object = { 'a.b': { 'c.d': 5 } };
         
         expect(get(object, 'a.b.c.d')).toBe(5);
