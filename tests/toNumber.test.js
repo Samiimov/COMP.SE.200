@@ -6,6 +6,7 @@ describe('toNumber', () => {
         expect(toNumber(3.2)).toBe(3.2);
         expect(toNumber(Number.MIN_VALUE)).toBe(5e-324);
         expect(toNumber(Infinity)).toBe(Infinity);
+        expect(toNumber(0)).toBe(0);
     });
 
     test('should convert a string to a number', () => {
