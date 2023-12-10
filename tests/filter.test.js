@@ -1,4 +1,4 @@
-import filter from '../src/filter';
+import filter from '../src/filter.js';
 
 
 describe('filter', () => {
@@ -59,9 +59,8 @@ describe('filter', () => {
         expect(array).toEqual([1, 2, 3, 4, 5]);
     });
 
-    test('should handle arrays with null length', () => {
-        const array = [];
-        array.length = null;
+    test('should handle null arrays', () => {
+        const array = null;
         expect(filter(array, () => true)).toEqual([]);
     });
 });
