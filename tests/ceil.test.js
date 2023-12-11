@@ -13,7 +13,7 @@ describe('ceil function', () => {
 
   test('rounds up numbers with negative precision', () => {
     expect(ceil(6040, -2)).toBe(6100);
-    expect(ceil(6040, -1)).toBe(6050);
+    expect(ceil(6004, -1)).toBe(6010);
   });
 
 });
