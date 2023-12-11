@@ -43,4 +43,9 @@ describe('isEmpty function', () => {
     expect(isEmpty(new Set([1]))).toBe(false);
   });
 
+  test('returns true for objects with only non-enumerable properties', () => {
+    const obj = Object.defineProperty({}, 'a', { value: 1, enumerable: false });
+    expect(isEmpty(obj)).toBe(true);
+  });
+
 });
