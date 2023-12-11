@@ -48,4 +48,21 @@ describe('isEmpty function', () => {
     expect(isEmpty(obj)).toBe(true);
   });
 
+  test('should return true for empty prototype objects', () => {
+    function MyObject() {}
+    const prototypeOfMyObject = Object.getPrototypeOf(new MyObject());
+    
+    // Test that the prototype object is considered empty
+    expect(isEmpty(prototypeOfMyObject)).toBe(true);
+  });
+
+  test('should return false for prototype objects with properties', () => {
+    function MyObject() {}
+    const prototypeOfMyObject = Object.getPrototypeOf(new MyObject());
+    MyObject.prototype.someProperty = 'some value';
+
+    // Test that the prototype object is no longer considered empty
+    expect(isEmpty(prototypeOfMyObject)).toBe(false);
+  });
+
 });
