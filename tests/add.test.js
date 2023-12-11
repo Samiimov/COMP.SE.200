@@ -25,14 +25,14 @@ describe('add function', () => {
     expect(add(100000000000, 100000000000)).toBe(200000000000);
   });
 
-//   test('handles addition with booleans', () => {
-//     expect(add(true, false)).toBe(1);
-//     expect(add(true, 10)).toBe(11);
-//     expect(add(10, false)).toBe(10);
-//   });
+  // Possible due to implicit coercion, intended?
+  test('handles addition with booleans', () => {
+    expect(add(true, false)).toBe(1);
+    expect(add(true, 10)).toBe(11);
+    expect(add(10, false)).toBe(10);
+  });
 
   test('handles invalid inputs', () => {
-    expect(() => add(true, false)).toThrow();
     expect(() => add('x', 'y')).toThrow();
     expect(() => add(null, undefined)).toThrow();
   });

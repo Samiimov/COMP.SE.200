@@ -1,4 +1,4 @@
-import filter from '../src/filter';
+import filter from '../src/filter.js';
 
 
 describe('filter', () => {
@@ -57,5 +57,10 @@ describe('filter', () => {
         const predicate = (value) => value % 2 === 0;
         const result = filter(array, predicate);
         expect(array).toEqual([1, 2, 3, 4, 5]);
+    });
+
+    test('should handle null arrays', () => {
+        const array = null;
+        expect(filter(array, () => true)).toEqual([]);
     });
 });
